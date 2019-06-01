@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="list-group">
+            <a href="#" class="list-group-item list-group-item-action active">
+                考试阅卷
+                <button id="btn" class="btn btn-success float-right">开始</button>
+            </a>
+            <a href="#" class="list-group-item list-group-item-action list-group-item-info">
+                <h4>Word</h4>
+                <div class="progress my-2">
+                    <div class="progress-bar bg-success"></div>
+                    <div class="progress-bar bg-danger"></div>
+                </div>
+            </a>
+            <a href="#" class="list-group-item list-group-item-action list-group-item-success">
+                <h4>Excel</h4>
+                <div class="progress my-2">
+                    <div class="progress-bar progress-bar-striped"></div>
+                    <div class="progress-bar bg-danger"></div>
+                </div>
+            </a>
+            <a href="#" class="list-group-item list-group-item-action list-group-item-danger">
+                <h4>PPT</h4>
+                <div class="progress my-2">
+                    <div class="progress-bar bg-info"></div>
+                    <div class="progress-bar bg-danger"></div>
+                </div>
+            </a>
+        </div>
+    </div>
+    <script>
+        function proc(a) {
+            document.querySelectorAll(".progress-bar:nth-child(1)").forEach(e => {
+                e.style.width = a + "%";
+                e.innerHTML = a + '%';
+            })
+        }
+        document.getElementById("btn").onclick = function () {
+            document.querySelectorAll(".progress-bar:nth-child(2)").forEach(e => e.style.width = "1%");
+            var a = 0;
+            var v = setInterval(() => {
+                a = a + 1; proc(a);
+                if (a == 99) document.querySelectorAll(".progress-bar:nth-child(2)").forEach(e => e.style.width = "0%");
+                if (a >= 100) clearInterval(v);
+            }, 100);
+        }
+    </script>
+</body>
+
+</html>

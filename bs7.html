@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <script src="js/bootstrap-native-v4.min.js"></script>
+  </head>
+  <body>
+    <div class="container-fluid form-inline">
+      <label class="w-100">
+        <nav id="myScrollspy" style="width:100px;" class="align-self-start">
+          <ul class="nav nav-pills flex-column">
+            <li class="nav-item">
+              <a class="nav-link active" href="#section1">Section 1</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                data-toggle="dropdown"
+                href="#"
+                >Section 2</a
+              >
+              <div class="dropdown-menu">
+                <a class="dropdown-item" href="#section21">Link 1</a>
+                <a class="dropdown-item" href="#section22">Link 2</a>
+              </div>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#section3">Section 3</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#section4">Section 4</a>
+            </li>
+          </ul>
+        </nav>
+        <div
+          data-spy="scroll"
+          data-target="#myScrollspy"
+          class="w-100 pre-scrollable"
+        >
+          <div id="section1" class="bg-success" style="height: 800px">
+            <h1>Section 1</h1>
+            <p>
+              Try to scroll this section and look at the navigation list while
+              scrolling!
+            </p>
+          </div>
+          <div id="section21" class="bg-danger" style="height: 800px">
+            <h1>Section 2-1</h1>
+            <p>
+              Try to scroll this section and look at the navigation list while
+              scrolling!
+            </p>
+          </div>
+          <div id="section22" class="bg-info" style="height: 800px">
+            <h1>Section 2-2</h1>
+            <p>
+              Try to scroll this section and look at the navigation list while
+              scrolling!
+            </p>
+          </div>
+          <div id="section3" class="bg-warning" style="height: 800px">
+            <h1>Section 3</h1>
+            <p>
+              Try to scroll this section and look at the navigation list while
+              scrolling!
+            </p>
+          </div>
+          <div id="section4" class="bg-secondary" style="height: 800px">
+            <h1>Section 4</h1>
+            <p>
+              Try to scroll this section and look at the navigation list while
+              scrolling!
+            </p>
+          </div>
+        </div>
+      </label>
+    </div>
+  </body>
+</html>

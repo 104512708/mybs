@@ -1,0 +1,129 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/font-awesome.min.css" />
+    <script src="js/bootstrap-native-v4.min.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="list-group" style="text-align: left">
+            <div class="list-group-item list-group-item-action list-group-item-danger">
+                <h4 class="text-center">
+                    <i class="fa fa-shopping-cart mr-1"></i>我的购物车
+                </h4>
+            </div>
+            <div class="list-group-item list-group-item-action">
+                <h4>总计：<span id="total" class="text-danger"></span></h4>
+            </div>
+            <div id="tmp">
+                <div class="list-group-item list-group-item-action">
+                    <div class="media border mt-2">
+                        <img src="img/data.jpg" class="rounded mr-3" style="width: 115px; max-height: 190px" />
+                        <div class="media-body">
+                            <div class="my-2">
+                                <h4>数据库原理及MySQL<small>合计：<span id="num1Total" class="ml-2 text-danger">15.00</span></small></h4>
+                            </div>
+                            <div class="my-2 form-inline">
+                                单价：<span id="num1Price" class="mr-2">15.00</span>
+                                购买数量：
+                            <div class="input-group input-group-sm my-2">
+                                <div class="input-group-prepend">
+                                    <a href="#num1" class="btn btn-outline-secondary minus">
+                                        <i class="fa fa-minus"></i>
+                                    </a>
+                                </div>
+                                <input type="number" id="num1" readonly="false" class="form-control border border-secondary" style="width: 40px" min="1" value="1" />
+                                <div class="input-group-append">
+                                    <a href="#num1" class="btn btn-outline-secondary plus"><i class="fa fa-plus"></i></a>
+                                </div>
+                            </div>
+                            </div>
+                            <a href="#toast1" data-toggle="collapse" class="btn btn-sm btn-outline-danger">删除<i class="fa fa-times"></i>                     </a>
+                            <div id="toast1" class="collapse toast">
+                                <div class="toast-header">
+                                    <svg class="bd-placeholder-img rounded mr-2" width="20" height="20">
+                                        <rect fill="#007aff" width="100%" height="100%"></rect>
+                                    </svg>
+                                    <strong class="mr-auto">图书网提示</strong>
+                                    <a class="ml-2 mb-2 close" href="#toast1" data-toggle="collapse">&times</a>
+                                </div>
+                                <div class="toast-body">
+                                    <h6>确实要删除商品?</h6>
+                                    <a class="alert-link float-right mx-3" href="#toast1" data-toggle="collapse">返回</a>
+                                    <a href="#" class="alert-link float-right">删除</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="list-group-item list-group-item-action">
+                <h5>为您推荐</h5>
+            </div>
+            <div class="list-group-item list-group-item-action">
+                <div class="row text-center">
+                    <div class="col-sm-6 col-lg-3">
+                        <div>
+                            <img src="img/data.jpg" class="rounded" style="width: 115px; max-height: 190px" />
+                        </div>
+                        <button class="btn btn-sm btn-outline-primary mt-2">购买<i class="fa fa-cart-plus"></i></button>
+                        <h6>数据库原理及MySQL</h6>
+                        <h6>单价：￥12.00</h6>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script>
+            document.querySelectorAll(".minus,.plus").forEach(
+              e =>
+                (e.onclick = function() {
+                    var numel = document.querySelector(e.getAttribute("href"));
+                    var num = Number(numel.value);                    
+                    if (num > 1 || e.classList.contains('plus')) {                        
+                        if(e.classList.contains('plus'))num++;
+                        else num--;                        
+                        numel.value = num;
+                        var priceel = document.querySelector(e.getAttribute("href") + "Price");
+                        var price = Number(priceel.innerHTML);
+                        document.querySelector(
+                          e.getAttribute("href") + "Total"
+                        ).innerHTML = (num * price).toLocaleString("zn-cn",{style: "currency",currency: "CNY"}
+                    );
+                    }
+                })
+            );
+        </script>
+    </div>
+    <script>
+                var car = [
+                { Bname: "高等数学", SPrice: 32, Pic: "math.jpg", Nums: 2 },
+                { Bname: "Vue.JS实战", SPrice: 54.5, Pic: "vue.jpg", Nums: 3 }
+            ];
+
+
+
+    </script>
+
+    <style>
+        input::-webkit-outer-spin-button,
+        input::-webkit-inner-spin-button
+        {
+            -webkit-appearance: none;
+        }
+
+        input[type="number"]
+        {
+            -moz-appearance: textfield;
+        }
+
+        .form-control[readonly]
+        {
+            background-color: white;
+        }
+    </style>
+</body>
+</html>
